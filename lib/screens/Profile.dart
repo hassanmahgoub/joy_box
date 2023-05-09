@@ -1,10 +1,10 @@
-// ignore_for_file: file_names, prefer_const_constructors, avoid_unnecessary_containers, prefer_final_fields, unused_import, avoid_relative_lib_imports, unused_local_variable, unnecessary_import
+// ignore_for_file: file_names, prefer_const_constructors, avoid_unnecessary_containers, prefer_final_fields, unused_import, avoid_relative_lib_imports, unused_local_variable, unnecessary_import, sort_child_properties_last
 
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_application_1/screens/HomePage.dart';
+import 'package:flutter_application_1/widgets/NavigationBar.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../widgets/alert_dialog.dart';
@@ -58,6 +58,7 @@ class _ProfilePageState extends State<Profile> {
   SafeArea(
     child: SingleChildScrollView(
       child: Column(children: [
+        SizedBox(height: 5,),
         Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
@@ -113,7 +114,7 @@ class _ProfilePageState extends State<Profile> {
                       child: const Center(child: Text('تغيير كلمة المرور',style: TextStyle(fontFamily: 'rb',fontSize:16,fontWeight: FontWeight.bold,color: Color(0xff25E0B1)),)),
                       ),
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const PasswerdChange()));
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const PasswerdChange()));
                       },
               ),
             ),

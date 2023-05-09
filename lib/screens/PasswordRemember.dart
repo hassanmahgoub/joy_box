@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'HomePage.dart';
+import '../widgets/NavigationBar.dart';
 import 'loginPage.dart';
 
 class PasswordRemember extends StatefulWidget {
@@ -93,7 +93,11 @@ class _PasswordRememberState extends State<PasswordRemember> {
                   
                   height: 45,
                   child: TextFormField(
+                    keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Color(0xff25E0B1)),
+                        borderRadius: BorderRadius.circular(5)),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Color(0xff25E0B1)),
                         borderRadius: BorderRadius.circular(5)),

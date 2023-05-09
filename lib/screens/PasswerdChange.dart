@@ -1,8 +1,9 @@
 // ignore_for_file: file_names, prefer_const_constructors, avoid_relative_lib_imports, prefer_final_fields, unused_local_variable, deprecated_member_use, avoid_print, non_constant_identifier_names, body_might_complete_normally_nullable, unused_import
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/Home.dart';
 import 'package:flutter_svg/svg.dart';
 import '../widgets/alert_dialog.dart';
-import 'HomePage.dart';
+import '../widgets/NavigationBar.dart';
 import 'Profile.dart';
 import 'loginPage.dart';
 class PasswerdChange extends StatefulWidget {
@@ -144,8 +145,11 @@ final formKey=GlobalKey<FormState>();
                   ),
                   
                   child: TextFormField(
+                    keyboardType: TextInputType.name,
                     decoration: InputDecoration(
-                      
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Color(0xff25E0B1)),
+                        borderRadius: BorderRadius.circular(5)),
                       enabledBorder: OutlineInputBorder(
                         
                         borderSide: BorderSide(color: Color(0xff25E0B1)),
@@ -178,8 +182,11 @@ final formKey=GlobalKey<FormState>();
                   ),
                   
                   child: TextFormField(
+                    keyboardType: TextInputType.visiblePassword,
                     decoration: InputDecoration(
-                      
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Color(0xff25E0B1)),
+                        borderRadius: BorderRadius.circular(5)),
                       enabledBorder: OutlineInputBorder(
                         
                         borderSide: BorderSide(color: Color(0xff25E0B1)),
@@ -212,8 +219,11 @@ final formKey=GlobalKey<FormState>();
                   ),
                   
                   child: TextFormField(
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Color(0xff25E0B1)),
+                        borderRadius: BorderRadius.circular(5)),
                       enabledBorder: OutlineInputBorder(
                         
                         borderSide: BorderSide(color: Color(0xff25E0B1)),
@@ -252,7 +262,7 @@ final formKey=GlobalKey<FormState>();
                               if(formKey.currentState!.validate()){
                     final snackBar= SnackBar(content: Text('Welcome ',textAlign: TextAlign.center,));
                     //ScaffoldKey.currentState!.showSnackBar(snackBar);
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>loginPage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
                    }
                   },
                 ),

@@ -1,6 +1,6 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -15,7 +15,7 @@ class _SettingsState extends State<Settings> {
     return Scaffold(
       body: SafeArea(child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: const [
         Center(child: Text('Here is Setting'))
       ],)),
     );

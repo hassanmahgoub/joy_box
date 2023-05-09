@@ -1,5 +1,6 @@
 // ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, unused_local_variable, unused_import, body_might_complete_normally_nullable, avoid_print
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/NavigationBar.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../widgets/alert_dialog.dart';
@@ -59,6 +60,7 @@ class _AddCustomrState extends State<AddCustomr> {
             key: formKey,
 
              child: Column(children: [
+              SizedBox(height: 5,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
@@ -95,8 +97,11 @@ class _AddCustomrState extends State<AddCustomr> {
                     ),
                     
                     child: TextFormField(
+                      keyboardType: TextInputType.name,
                       decoration: InputDecoration(
-                        
+                        focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Color(0xff25E0B1)),
+                        borderRadius: BorderRadius.circular(5)),
                         enabledBorder: OutlineInputBorder(
                           
                           borderSide: BorderSide(color: Color(0xff25E0B1)),
@@ -130,8 +135,11 @@ class _AddCustomrState extends State<AddCustomr> {
                     ),
                     
                     child: TextFormField(
+                      keyboardType: TextInputType.name,
                       decoration: InputDecoration(
-                        
+                        focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Color(0xff25E0B1)),
+                        borderRadius: BorderRadius.circular(5)),
                         enabledBorder: OutlineInputBorder(
                           
                           borderSide: BorderSide(color: Color(0xff25E0B1)),
@@ -164,8 +172,11 @@ class _AddCustomrState extends State<AddCustomr> {
                     ),
                     
                     child: TextFormField(
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
-                        
+                        focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Color(0xff25E0B1)),
+                        borderRadius: BorderRadius.circular(5)),
                         enabledBorder: OutlineInputBorder(
                           
                           borderSide: BorderSide(color: Color(0xff25E0B1)),

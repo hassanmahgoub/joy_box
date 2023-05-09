@@ -1,11 +1,13 @@
-// ignore_for_file: file_names, non_constant_identifier_names, valid_regexps, prefer_const_constructors, unused_local_variable, deprecated_member_use, camel_case_types, avoid_print, body_might_complete_normally_nullable, prefer_typing_uninitialized_variables
+// ignore_for_file: file_names, non_constant_identifier_names, valid_regexps, prefer_const_constructors, unused_local_variable, deprecated_member_use, camel_case_types, avoid_print, body_might_complete_normally_nullable, prefer_typing_uninitialized_variables, unused_import, unused_field
 
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:quickalert/quickalert.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'HomePage.dart';
+import '../widgets/NavigationBar.dart';
+import 'Home.dart';
 import 'PasswordRemember.dart';
 
 class loginPage extends StatefulWidget {
@@ -16,6 +18,8 @@ const loginPage({ Key? key, required  }) : super(key: key);
 }
 
 class _HomePageState extends State<loginPage> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
   
   final formKey=GlobalKey<FormState>();
   
@@ -58,6 +62,7 @@ class _HomePageState extends State<loginPage> {
               children: [
               SizedBox(height: 50,),
               Container(
+                
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(5)
@@ -65,12 +70,24 @@ class _HomePageState extends State<loginPage> {
                 
                 height: 45,
                 child: TextFormField(
+                  onTap: () async{
+                     SharedPreferences _prefs = await SharedPreferences.getInstance();
+                                  _prefs.setString('E', _emailController.text);
+                                  _prefs.setString('P', _passwordController.text);
+                                  print(_emailController);
+                                },
+                  
+                  keyboardType: TextInputType.emailAddress,
                   onSaved: (value) {
                     email = value;
                   }, 
                   decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
+                    focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Color(0xff25E0B1)),
+                      borderRadius: BorderRadius.circular(5),),
+                    enabledBorder: OutlineInputBorder(
+                      
+                     borderSide: BorderSide(color: Color(0xff25E0B1)),
                       borderRadius: BorderRadius.circular(5)),
                     border: OutlineInputBorder(borderSide: BorderSide.none),
                     
@@ -81,7 +98,7 @@ class _HomePageState extends State<loginPage> {
                   validator: (value){
                     if(value!.isEmpty ||!RegExp(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)').hasMatch(value)){
                                             return 'incorrect';
-
+                
                     }else{
                       print(value);
                     }
@@ -97,10 +114,15 @@ class _HomePageState extends State<loginPage> {
                 ),
                 
                 child: TextFormField(
+                  keyboardType: TextInputType.visiblePassword,
                   onSaved: (value) {
                     password = value;
                   },
                   decoration: InputDecoration(
+                    
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xff25E0B1)),
+                      borderRadius: BorderRadius.circular(5),),
                     
                     enabledBorder: OutlineInputBorder(
                       
@@ -139,7 +161,7 @@ class _HomePageState extends State<loginPage> {
                       
                       confirmBtnColor: Color(0xff25E0B1),
                       onConfirmBtnTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomePage()));
                       },
                       context: context, type: QuickAlertType.success,
                      confirmBtnTextStyle: 
@@ -158,7 +180,7 @@ class _HomePageState extends State<loginPage> {
                 children:  [
                 InkWell(child: Text('استعادة',style: TextStyle(color: Color(0xff25E0B1),fontFamily: 'rb',fontSize: 11),),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PasswordRemember()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>PasswordRemember()));
                 },
                 ),
                 SizedBox(width: 5,),

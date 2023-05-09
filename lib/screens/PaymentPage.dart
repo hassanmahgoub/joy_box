@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'HomePage.dart';
+import '../widgets/NavigationBar.dart';
+import 'Home.dart';
 
 class PaymentPage extends StatefulWidget {
   const PaymentPage({ Key? key }) : super(key: key);
@@ -59,11 +60,12 @@ class _PaymentPageState extends State<PaymentPage> {
       padding: const EdgeInsets.symmetric(horizontal: 15,),
       child: SingleChildScrollView(
         child: Column(children:  [
+          SizedBox(height: 5,),
                    Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                     IconButton(onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
                     }, icon: Icon(Icons.arrow_back_ios)),
                   IconButton(
                               onPressed: (){
@@ -228,7 +230,7 @@ class _PaymentPageState extends State<PaymentPage> {
                       ])),
                       ),
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const HomePage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const Home()));
                       },
                   ),
                 SizedBox(height: 20,)
